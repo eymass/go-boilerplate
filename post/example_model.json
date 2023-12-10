@@ -1,0 +1,37 @@
+{
+  "locale": "ar",
+  "status": "live", // ["live", "draft", "deleted"]
+  "id": "9e3e3994-a3ed-47ca-a014-d4483884cfe2",
+  "featuredImage": "https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  "title": "Lenovo’s smarter devices stoke professional passions ",
+  "desc": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+  "urlTitle": "personal-development-2",
+  "date": "May 20, 2021",
+  "href": "/blog/single",
+  "categories": [
+    "destinations"
+  ],
+  "comments": [{
+    "id": 1,
+    "userId": null,
+    "date": "May 20, 2021",
+    "content": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+    "parentId": null,
+    "like": { "count": 96, "isLiked": false },
+    "children": null
+  }],
+  "paragraphs": [      {
+    "type": "text",
+    "text": "this is a paragraph",
+    "img": {
+      "src": "image"
+    }
+  }
+  ],
+  "views": 2504,
+  "readingTime": 2,
+  "like": { "count": 3366, "isLiked": true },
+  "authorId": "bson objectId",
+  "categoriesIds": [3, 12],
+  "type": "standard"
+}
