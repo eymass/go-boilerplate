@@ -9,6 +9,8 @@ import (
 type IRepository interface {
 	CreateUser(ctx context.Context, user User) (*mongo.InsertOneResult, error)
 	GetUser(ctx context.Context, id string) (User, error)
+	GetUsersByRole(ctx context.Context, role Role) (User, error)
+	GetUserByUserName(ctx context.Context, username string) (User, error)
 	UpdateUser(ctx context.Context, id string, user User) (*mongo.UpdateResult, error)
 	DeleteUser(ctx context.Context, id string) (*mongo.DeleteResult, error)
 }
@@ -42,4 +44,22 @@ func (r *Repository) UpdateUser(ctx context.Context, id string, user User) (*mon
 
 func (r *Repository) DeleteUser(ctx context.Context, id string) (*mongo.DeleteResult, error) {
 	return r.collection.DeleteOne(ctx, bson.M{"_id": id})
+}
+
+func (r *Repository) GetUserByRole(ctx context.Context, role Role) (*User, error) {
+	var user User
+	err := r.collection.FindOne(ctx, bson.M{"role": role}).Decode(&user)
+	if err != nil && err.Error() == mongo.ErrNoDocuments.Error() {
+		return nil, nil
+	}
+	return &user, err
+}
+
+func (r *Repository) GetUserByUserName(ctx context.Context, username string) (*User, error) {
+	var user User
+	err := r.collection.FindOne(ctx, bson.M{"username": username}).Decode(&user)
+	if err != nil && err.Error() == mongo.ErrNoDocuments.Error() {
+		return nil, nil
+	}
+	return &user, err
 }

@@ -30,7 +30,7 @@ func initiateContextMiddleware() gin.HandlerFunc {
 		database, closer := db.GetDatabase(ctx)
 		defer closer()
 		repo := user.NewUserRepository(database)
-		ctx.Set(config.UserRepositoryKey, &repo)
+		ctx.Set(config.UserRepositoryKey, repo)
 		ctx.Next()
 	}
 }
